@@ -1,0 +1,50 @@
+<div class="weui-panel weui-panel_access">
+    <div class="weui-panel__bd">
+		<input type="text" ng-model="chengyuVal" class="chengyu"/>
+		<span class="searchChengyu" ng-click="searchChengyu()">成语查询</span>
+        <div class="chengyuList" ng-show="ischengyuList">
+        	<h4>解释:</h4>
+	        <p>{{content}}</p>
+	        <h4>成语来源:</h4>
+	        <p>{{derivation}}</p>
+	        <h4>诗句:</h4>
+	        <p>{{samples}}</p>
+	        <h4>汉语拼音:</h4>
+	        <p>{{spell}}</p>
+        </div>
+       	<span ng-show="errchengyuList">{{errBack}}</span>
+    </div>
+    <div class="weui-loadmore" ng-show="isShowLoad">
+	    <i class="weui-loading"></i>
+	    <span class="weui-loadmore__tips">正在加载</span>
+	</div>
+    <style>
+    	.chengyu{
+    		width: 100%;
+    		height: 30px;
+    	}
+    	.searchChengyu{
+    		display: block;
+    		width: 100%;
+    		background: #007AFF;
+    		height: 30px;
+    		color:#fff;
+    		text-align: center;
+    		line-height: 30px;
+    	}
+    	.searchChengyu:active{
+    		background-color: yellow;
+    	}
+    	.chengyuList h4{
+    		margin-left: 10px;
+    		line-height: 30px;
+    		font-size: 20px;
+    	}
+    	.chengyuList p{
+    		line-height: 24px;
+    		font-size: 16px;
+    		text-indent: 32px;
+    		border-bottom: 1px solid #ccc;
+    	}
+    </style>
+</div>

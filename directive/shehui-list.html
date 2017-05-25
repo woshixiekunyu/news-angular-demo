@@ -1,0 +1,18 @@
+<div class="weui-panel weui-panel_access">
+    <div class="weui-panel__bd">
+        <a ng-repeat="j in joke" class="weui-media-box weui-media-box_appmsg">
+            <!-- <div class="weui-media-box__hd" ng-show="n.image">
+                <img class="weui-media-box__thumb" ng-src="{{n.image}}" alt="">
+            </div> -->
+            <div class="weui-media-box__bd">
+
+                <h4 class="weui-media-box__title" ng-bind="j.title"></h4>
+
+                <p class="weui-media-box__desc">
+                	<img style="width: 100%;height: 100px;" ng-src="{{j.picUrl?j.picUrl:''}}" alt="">
+                </p>
+            </div>
+        </a>
+    </div>
+    <more></more>
+</div>
