@@ -34,7 +34,13 @@
 	})
 	directives.directive('shehuiList',function(){
 		return {
-			templateUrl:'directive/shehui-list.html'
+			templateUrl:'directive/shehui-list.html',
+			
+		}
+	})
+	directives.directive('gaoxiaoList',function(){
+		return {
+			templateUrl:'directive/gaoxiao-list.html'
 		}
 	})
 	directives.directive('mark',function(){
@@ -66,6 +72,7 @@
 				//点击隐藏搜索框
 				scope.searchRemove = function(){
 					scope.isSearchShow = false;
+					scope.searchValue = '';
 				}
 
 				//点击清除搜索框内容
@@ -81,6 +88,19 @@
 	directives.directive('more',function(){
 		return {
 			templateUrl:'directive/more.html'
+		}
+	})
+	directives.directive('isimgs',function(){
+		return {
+			link:function(scope,ele,attr){
+				console.log(attr)
+					if(attr.ngSrc == ''){
+						scope.isimg = false;
+					}else{
+						scope.isimg = true;
+					}
+
+			}
 		}
 	})
 	directives.directive('totuijian',['$window',function($window){

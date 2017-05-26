@@ -127,6 +127,7 @@
 					"showapi_sign": '72fa78be4c2045138d456456fb9a3a90' 
 				}
 			}).then(function(data){
+				console.log(data)
 				$scope.isShowLoad = false;
 				// console.log(data.data.showapi_res_body.pagebean.contentlist)
 				$scope.news = data.data.showapi_res_body.pagebean.contentlist.concat($scope.news)
@@ -160,20 +161,26 @@
 		$scope.loadMore()
 	}])
 	controllers.controller('junshiCtrl',['$scope',"$http",function($scope,$http){
-		$scope.name = '电影排行';
+		$scope.name = '搞笑段子';
 		$scope.page = 1;
-		$http({
-			url:'http://route.showapi.com/341-3',
-			method:'GET',
-			params:{
-				"showapi_appid":'36277',
-				"showapi_sign": '56141c58028f4c41ae3977092aef073e',
-				"page":$scope.page,
-				"maxResult":10
-			}
-		}).then(function(data){
-			console.log(data)
-		})
+		$scope.news = [];
+		$scope.loadMore = function(){
+			$http({
+				url:'http://route.showapi.com/341-3',
+				method:'GET',
+				params:{
+					"showapi_appid":'36277',
+					"showapi_sign": '56141c58028f4c41ae3977092aef073e',
+					"page":$scope.page,
+					"maxResult":10
+				}
+			}).then(function(data){
+				console.log(data)
+				$scope.news = $scope.news.concat(data.data.showapi_res_body.contentlist);
+				$scope.page++
+			})
+		}
+		$scope.loadMore()
 		
 	}])
 	controllers.controller('tuijian-detailCtrl',['$scope','$state','$http',function($scope,$state,$http){
